@@ -1,5 +1,5 @@
 angular.module("congo")
-.constant("catUrl", "http://ec2-34-193-176-76.compute-1.amazonaws.com/congodataservice/category")
+.constant("catUrl", "http://ec2-34-193-194-23.compute-1.amazonaws.com/Congo-Logic-Api/Api/Category")
 .constant("proUrl", "http://localhost:5556/products")
 .controller("congoCtrl", function ($scope, $http, catUrl, proUrl)
 {
@@ -10,7 +10,7 @@ angular.module("congo")
     var date = new Date();
     $scope.year = date.getFullYear();
 
-    $http.get(catUrl)
+    $http.get(catUrl, {responseType:"json"})
         .success(function (data) {
             $scope.data.category = data;
         })

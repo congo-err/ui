@@ -12,10 +12,10 @@ angular.module("congo")
 
     $http.get(catUrl, {responseType:"json"})
         .success(function (data) {
-            $scope.data.category = data;
+            $scope.data.Category = data;
         })
         .error(function (error) {
-            $scope.data.category = error;
+            $scope.data.Category = error;
         });
 
     $http.get(proUrl)

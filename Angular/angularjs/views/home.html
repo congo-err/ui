@@ -7,11 +7,13 @@
     <hr>
     <div class="container">
         <div ng-repeat="item in data3.products">
-            <div class="well">
-                <h3>{{item.name}}</h3>
-                <p>{{item.desc}}</p>
-                <h5>{{item.price | currency}}</h5>
-            </div>
+            <a href="#/products/product">
+                <div class="well">
+                    <h3>{{item.name}}</h3>
+                    <p>{{item.desc}}</p>
+                    <h5>{{item.price | currency}}</h5>
+                </div>
+            </a>
         </div>
     </div>
 </div>

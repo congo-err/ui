@@ -5,22 +5,25 @@
         </div>
     </div>
     <div class="col-md-9">
+        <a href="#/">Home</a>>Category
         <div class="row" ng-repeat="item in data2.products">
-            <div class="well container-fluid">
-                <div class="col-md-3">
-                    <h4>Image</h4>
+            <a href="#/products/product">
+                <div class="well container-fluid">
+                    <div class="col-md-3">
+                        <h4>Image</h4>
+                    </div>
+                    <div class="col-md-3">
+                        <h3>{{item.name}}</h3>
+                    </div>
+                    <div class="col-md-5">
+                        <p>{{item.desc}}</p>
+                        <p>{{item.category}}</p>
+                    </div>
+                    <div class="col-md-1">
+                        <h4>{{item.price | currency}}</h4>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <h3>{{item.name}}</h3>
-                </div>
-                <div class="col-md-5">
-                    <p>{{item.desc}}</p>
-                    <p>{{item.category}}</p>
-                </div>
-                <div class="col-md-1">
-                    <h4>{{item.price | currency}}</h4>
-                </div>
-            </div>
+            </a>
         </div>
     </div>
 </div>

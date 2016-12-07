@@ -1,5 +1,5 @@
 angular.module("congo")
-.constant("catUrl", "http://localhost:5556/categories")
+.constant("catUrl", "http://ec2-34-193-176-76.compute-1.amazonaws.com/congodataservice/category")
 .constant("proUrl", "http://localhost:5556/products")
 .controller("congoCtrl", function ($scope, $http, catUrl, proUrl)
 {
@@ -64,4 +64,8 @@ angular.module("congo")
         .error(function (error) {
             $scope.data2.products = error;
         });
+    
+    $scope.search = function () {
+        window.location.href = '#/products';
+    }
 });

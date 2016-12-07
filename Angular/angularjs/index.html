@@ -15,11 +15,11 @@
         <a class="navbar-brand" href="#">Congo</a>
         <div class="search-bar">
             <div class="input-group">
-                <select class="form-control" ng-model="selectedDept" ng-options="x.categoryName for x in data.categories">
+                <select class="form-control" ng-model="selectedDept" ng-options="x.Name for x in data.categories">
                     <option value="" disabled selected>Categories</option>
                 </select>
                 <input type="text" class="form-control" name="search" placeholder="Search..">
-                <button type="button"  class="btn btn-default" aria-label="Left Align">
+                <button type="button"  class="btn btn-default" aria-label="Left Align" ng-click="search()">
                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                 </button>
             </div>

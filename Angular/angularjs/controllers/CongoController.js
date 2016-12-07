@@ -1,6 +1,6 @@
 angular.module("congo")
 .constant("catUrl", "http://ec2-34-193-194-23.compute-1.amazonaws.com/Congo-Logic-Api/Api/Category")
-.constant("proUrl", "http://localhost:5556/products")
+.constant("proUrl", "http://ec2-34-193-194-23.compute-1.amazonaws.com/Congo-Logic-Api/Api/Product")
 .controller("congoCtrl", function ($scope, $http, catUrl, proUrl)
 {
     $scope.data = {};
@@ -18,9 +18,9 @@ angular.module("congo")
             $scope.data.Category = error;
         });
 
-    $http.get(proUrl)
+    $http.get(proUrl, {responseType:"json"})
         .success(function (data) {
-            $scope.data2.products = data;
+            $scope.data2.Product = data;
 
             var slot1 = 0;
             var slot2 = 0;
@@ -55,14 +55,14 @@ angular.module("congo")
                 }
                 else if (i == 4)
                 {
-                    $scope.data3.products = [$scope.data2.products[slot1], $scope.data2.products[slot2], $scope.data2.products[slot3], $scope.data2.products[slot4]];
+                    $scope.data3.Product = [$scope.data2.Product[slot1], $scope.data2.Product[slot2], $scope.data2.Product[slot3], $scope.data2.Product[slot4]];
                     runLoop = false;
                 }
             }
             
         })
         .error(function (error) {
-            $scope.data2.products = error;
+            $scope.data2.Product = error;
         });
     
     $scope.search = function () {

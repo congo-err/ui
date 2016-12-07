@@ -2,30 +2,60 @@
 <html ng-app="congo">
 <head>
     <title>Congo</title>
-    <script src="angular.js"></script>
-    <link href="bootstrap.css" rel="stylesheet" />
-    <link href="bootstrap-theme.css" rel="stylesheet" />
-    <script>
-        angular.module("congo", []);
-    </script>
+    <script src="scripts/angular.js"></script>
+    <link href="content/bootstrap.css" rel="stylesheet" />
+    <link href="content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="content/Style.css" rel="stylesheet" />
+    <script src="scripts/routes.js"></script>
     <script src="ngmodules/angular-route.js"></script>
     <script src="controllers/CongoController.js"></script>
 </head>
 <body ng-controller="congoCtrl">
     <div class="navbar navbar-inverse">
-        <a class="navbar-brand" href="#">CONGO</a>
-    </div>
-
-    <div class="well">
-        <div class="container-fluid">
-            <div ng-repeat="item in temp">
-                <div class="row">
-                    <h2>{{item}}</h2>
-                </div>
+        <a class="navbar-brand" href="#">Congo</a>
+        <div class="search-bar">
+            <div class="input-group">
+                <select class="form-control" ng-model="selectedDept" ng-options="x.categoryName for x in data.categories">
+                    <option value="" disabled selected>Categories</option>
+                </select>
+                <input type="text" class="form-control" name="search" placeholder="Search..">
+                <button type="button"  class="btn btn-default" aria-label="Left Align">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </button>
             </div>
         </div>
     </div>
 
-    <ng-view />    
+    <ng-view></ng-view>
+
+    <footer>
+        <hr>
+        <div class="well">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <a href="#" class="footer-link">Sitemap</a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="#" class="footer-link">Contact Us</a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="#" class="footer-link">Twitter</a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="#" class="footer-link">Facebook</a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="copyright">Copyright <span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span> {{year}}, Congo LLC. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>   
 </body>
 </html>

@@ -1,0 +1,17 @@
+<div class="jumbotron">
+    <h1>Congo Banner</h1> 
+    <p>Congo is the hottest new shopping site where you can find all the latest deals on the newest products.</p> 
+</div>
+<div class="featured-products">
+    <h2>Featured Products</h2>
+    <hr>
+    <div class="container">
+        <div ng-repeat="item in data3.products">
+            <div class="well">
+                <h3>{{item.name}}</h3>
+                <p>{{item.desc}}</p>
+                <h5>{{item.price | currency}}</h5>
+            </div>
+        </div>
+    </div>
+</div>

@@ -12,10 +12,10 @@ angular.module("congo")
 
     $http.get(catUrl)
         .success(function (data) {
-            $scope.data.categories = data;
+            $scope.data.category = data;
         })
         .error(function (error) {
-            $scope.data.categories = error;
+            $scope.data.category = error;
         });
 
     $http.get(proUrl)

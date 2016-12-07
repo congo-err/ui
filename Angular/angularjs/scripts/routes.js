@@ -4,6 +4,14 @@ angular.module("congo", ["ngRoute"])
         templateUrl: "views/test.html"
     });
     
+    $routeProvider.when("/login", {
+        templateUrl: "views/login.html"
+    });
+    
+    $routeProvider.when("/createaccount", {
+        templateUrl: "views/createAccount.html"
+    });
+    
     $routeProvider.when("/products/product", {
         templateUrl: "views/product.html"
     });

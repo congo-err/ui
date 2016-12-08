@@ -29,8 +29,8 @@
         </div>
         <div class="pull-right">
             <div class="navbar-controls">
-                <div class="navbar-control">
-                    <p class="navbar-control" style="color: #FFF">{{data.CurrentUser.UserName}}</p>
+                <div class="navbar-control hidden">
+                    <p style="color: #FFF">{{data.CurrentUser.UserName}}</p>
                 </div>
                 <div class="navbar-control">
                     <button type="button" class="btn btn-default" ui-sref="login">Log In</button>
@@ -42,7 +42,7 @@
                     <button type="button" class="btn btn-default" ui-sref="home">Account</button>
                 </div>
                 <div class="navbar-control hidden">
-                    <button type="button" class="btn btn-default" ui-sref="home">Log Out</button>
+                    <button type="button" class="btn btn-default" ng-click="logOut()">Log Out</button>
                 </div>
             </div>
         </div>

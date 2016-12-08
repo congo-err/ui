@@ -1,8 +1,9 @@
 angular.module("congo")
 .constant("catUrl", "http://ec2-34-193-194-23.compute-1.amazonaws.com/Congo-Logic-Api/Api/Category")
 .constant("proUrl", "http://ec2-34-193-194-23.compute-1.amazonaws.com/Congo-Logic-Api/Api/Product")
-.constant("accUrl", "http://ec2-34-193-194-23.compute-1.amazonaws.com/Congo-Logic-Api/Api/UserRole")
-.controller("congoCtrl", function ($scope, $http, catUrl, proUrl, accUrl)
+.constant("useUrl", "http://ec2-34-193-194-23.compute-1.amazonaws.com/Congo-Logic-Api/Api/UserRole")
+.constant("feaUrl", "http://ec2-34-193-194-23.compute-1.amazonaws.com/Congo-Logic-Api/Api/Featured")
+.controller("congoCtrl", function ($scope, $http, $state, catUrl, proUrl, useUrl, feaUrl)
 {
     var date = new Date();
     var id = 0;
@@ -26,67 +27,96 @@ angular.module("congo")
     if (getCookie("AccountID") != "")
     {
         id = Number(getCookie("AccountID"));
-        var newUrl = accUrl+"/"+id;
-        console.log(newUrl);
+        var newUrl = useUrl+"/"+id;
 
         $http.get(newUrl, {responseType:"json"})
             .success(function (data) {
+                if(checkRoles() == 3)
+                {
+                    reverseRoles();
+                }
                 $scope.data.CurrentUser = data;
             })
             .error(function (error) {
                 $scope.data.CurrentUser = error;
             });
     }
-    
 
     $http.get(proUrl, {responseType:"json"})
         .success(function (data) {
             $scope.data.Product = data;
-
-            var slot1 = 0;
-            var slot2 = 0;
-            var slot3 = 0;
-            var slot4 = 0;
-            var i = 0;
-            var runLoop = true;
-            
-            while(runLoop)
-            {
-                var newRandom = Math.floor(Math.random() * 4) + 1;
-
-                if (i == 0)
-                {
-                    slot1 = newRandom;
-                    i++;
-                }
-                else if (i == 1 && newRandom != slot1)
-                {
-                    slot2 = newRandom;
-                    i++;
-                }
-                else if (i == 2 && newRandom != slot1 && newRandom != slot2)
-                {
-                    slot3 = newRandom;
-                    i++;
-                }
-                else if (i == 3 && newRandom != slot1 && newRandom != slot2 && newRandom != slot3)
-                {
-                    slot4 = newRandom;
-                    i++;
-                }
-                else if (i == 4)
-                {
-                    $scope.data.Featured = [$scope.data.Product[slot1], $scope.data.Product[slot2], $scope.data.Product[slot3], $scope.data.Product[slot4]];
-                    runLoop = false;
-                }
-            }
-            
         })
         .error(function (error) {
             $scope.data.Product = error;
         });
+
+    $http.get(feaUrl+"/4", {responseType:"json"})
+        .success(function (data) {
+            $scope.data.Featured = data;
+        })
+        .error(function (error) {
+            $scope.data.Featured = error;
+        });
     
     $scope.search = function () {
-        window.location.href = '#/products';
+        $state.go("products");
+    }
+
+    $scope.logOut = function () {
+        setCookie("AccountID", "");
+        reverseRoles();
+        $scope.data.CurrentUser = null;
+        $state.go("home");
     }
 });
+
+function checkRoles() {
+    var hidden = document.getElementsByClassName("navbar-control hidden");
+    return hidden.length;
+}
+
+function reverseRoles() {
+    var hiddenCol = document.getElementsByClassName("navbar-control hidden");
+    var allCol = document.getElementsByClassName("navbar-control");
+    var all = [];
+    var hidden = [];
+    var visible = [];
+
+    for(var i = 0; i < allCol.length; i++)
+    {
+        all.push(allCol[i]);
+    }
+
+    for(var i = 0; i < hiddenCol.length; i++)
+    {
+        hidden.push(hiddenCol[i]);
+    }
+
+    for (var i = 0; i < all.length; i++)
+    {
+        var isHidden = false;
+
+        for(var j = 0; j < hidden.length; j++)
+        {
+            if(all[i] == hidden[j])
+            {
+                isHidden = true;
+            }
+        }
+
+        if (!isHidden)
+        {
+            visible.push(all[i]);
+        }
+    }
+
+    for (var i = 0; i < visible.length; i++)
+    {
+        visible[i].className = "navbar-control hidden";
+    }
+
+    for (var i = 0; i < hidden.length; i++)
+    {
+        hidden[i].className = "navbar-control";
+    }
+}

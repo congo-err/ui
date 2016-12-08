@@ -71,6 +71,10 @@ body {
     height: 100%;
 }
 
+.ProductSize{
+    width: 9em;
+}
+
 .featured-products {
     text-align: center;
 }

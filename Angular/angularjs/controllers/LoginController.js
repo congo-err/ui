@@ -12,8 +12,7 @@ angular.module("congo")
                     if(res.data.success)
                     {
                         console.log(res);
-                        document.cookie = res.data.account;
-                        $scope.data.CurrentUser = res.data.account;
+                        setCookie("AccountID", res.data.account.AccountID);
                         console.log(res.data.account);
                         //$state.go("home");
                     }

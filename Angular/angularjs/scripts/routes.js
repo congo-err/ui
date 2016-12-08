@@ -1,31 +1,3 @@
-/*
-angular.module("congo", ["ngRoute"])
-.config(function ($routeProvider) {
-    $routeProvider.when("/test", {
-        templateUrl: "views/test.html"
-    });
-    
-    $routeProvider.when("/login", {
-        templateUrl: "views/login.html"
-    });
-    
-    $routeProvider.when("/createaccount", {
-        templateUrl: "views/createAccount.html"
-    });
-    
-    $routeProvider.when("/products/product", {
-        templateUrl: "views/product.html"
-    });
-
-    $routeProvider.when("/products", {
-        templateUrl: "views/productList.html"
-    });
-
-    $routeProvider.otherwise({
-        templateUrl: "views/home.html"
-    });
-});*/
-
 angular.module('congo', ['ui.router'])
 .config(function ($stateProvider) {
     $stateProvider
@@ -48,5 +20,9 @@ angular.module('congo', ['ui.router'])
     .state('createAccount', {
         url: "/createaccount",
         templateUrl: "views/createAccount.html",
+    })
+    .state('cart', {
+        url: "/cart",
+        templateUrl: "views/Cart.html",
     })
 });

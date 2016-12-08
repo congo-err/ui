@@ -1,9 +1,11 @@
 angular.module("congo")
 .constant("catUrl", "http://ec2-34-193-194-23.compute-1.amazonaws.com/Congo-Logic-Api/Api/Category")
 .constant("proUrl", "http://ec2-34-193-194-23.compute-1.amazonaws.com/Congo-Logic-Api/Api/Product")
-.controller("congoCtrl", function ($scope, $http, catUrl, proUrl)
+.constant("accUrl", "http://ec2-34-193-194-23.compute-1.amazonaws.com/Congo-Logic-Api/Api/Login")
+.controller("congoCtrl", function ($scope, $http, catUrl, proUrl, accUrl)
 {
     var date = new Date();
+    var id = 0;
 
     $scope.data = {};
     $scope.data.Year = date.getFullYear();
@@ -21,6 +23,20 @@ angular.module("congo")
         .error(function (error) {
             $scope.data.Category = error;
         });
+
+    if (getCookie("AccountID") != "")
+    {
+        id = Number(getCookie("AccountID"));
+
+        $http.get(accUrl+id, {responseType:"json"})
+            .success(function (data) {
+                $scope.data.Category = data;
+            })
+            .error(function (error) {
+                $scope.data.Category = error;
+            });
+    }
+    
 
     $http.get(proUrl, {responseType:"json"})
         .success(function (data) {

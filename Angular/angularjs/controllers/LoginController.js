@@ -14,7 +14,7 @@ angular.module("congo")
                         console.log(res);
                         setCookie("AccountID", res.data.account.AccountID);
                         console.log(res.data.account);
-                        //$state.go("home");
+                        $state.go("home");
                     }
                 }, function (err) {
 

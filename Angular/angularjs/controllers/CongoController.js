@@ -1,7 +1,7 @@
 angular.module("congo")
 .constant("catUrl", "http://ec2-34-193-194-23.compute-1.amazonaws.com/Congo-Logic-Api/Api/Category")
 .constant("proUrl", "http://ec2-34-193-194-23.compute-1.amazonaws.com/Congo-Logic-Api/Api/Product")
-.constant("accUrl", "http://ec2-34-193-194-23.compute-1.amazonaws.com/Congo-Logic-Api/Api/Login")
+.constant("accUrl", "http://ec2-34-193-194-23.compute-1.amazonaws.com/Congo-Logic-Api/Api/UserRole")
 .controller("congoCtrl", function ($scope, $http, catUrl, proUrl, accUrl)
 {
     var date = new Date();
@@ -9,7 +9,6 @@ angular.module("congo")
 
     $scope.data = {};
     $scope.data.Year = date.getFullYear();
-    $scope.data.CurrentUser = document.cookie;
     $scope.data.States = ["AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA",
                           "HI","ID","IL","IN","IA","KS","KY","LA","ME","MD",
                           "MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ",
@@ -27,13 +26,15 @@ angular.module("congo")
     if (getCookie("AccountID") != "")
     {
         id = Number(getCookie("AccountID"));
+        var newUrl = accUrl+"/"+id;
+        console.log(newUrl);
 
-        $http.get(accUrl+id, {responseType:"json"})
+        $http.get(newUrl, {responseType:"json"})
             .success(function (data) {
-                $scope.data.Category = data;
+                $scope.data.CurrentUser = data;
             })
             .error(function (error) {
-                $scope.data.Category = error;
+                $scope.data.CurrentUser = error;
             });
     }
     

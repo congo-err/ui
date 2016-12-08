@@ -25,4 +25,8 @@ angular.module('congo', ['ui.router'])
         url: "/cart",
         templateUrl: "views/Cart.html",
     })
+    .state('checkout',{
+        url:"/checkout",
+        templateUrl: "views/checkout.html",
+    })
 });

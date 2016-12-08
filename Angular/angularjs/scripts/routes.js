@@ -1,3 +1,4 @@
+/*
 angular.module("congo", ["ngRoute"])
 .config(function ($routeProvider) {
     $routeProvider.when("/test", {
@@ -23,4 +24,29 @@ angular.module("congo", ["ngRoute"])
     $routeProvider.otherwise({
         templateUrl: "views/home.html"
     });
+});*/
+
+angular.module('congo', ['ui.router'])
+.config(function ($stateProvider) {
+    $stateProvider
+    .state('home', {
+        url: "",
+        templateUrl: "views/home.html",
+    })
+    .state('products', {
+        url: "/products",
+        templateUrl: "views/productList.html",
+    })
+    .state('product', {
+        url: "/products/product",
+        templateUrl: "views/product.html",
+    })
+    .state('login', {
+        url: "/login",
+        templateUrl: "views/login.html",
+    })
+    .state('createAccount', {
+        url: "/createaccount",
+        templateUrl: "views/createAccount.html",
+    })
 });

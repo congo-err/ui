@@ -6,12 +6,12 @@
     <h2>Featured Products</h2>
     <hr>
     <div class="container">
-        <div ng-repeat="item in data3.products">
+        <div ng-repeat="item in data.Featured">
             <a href="#/products/product">
                 <div class="well">
-                    <h3>{{item.name}}</h3>
-                    <p>{{item.desc}}</p>
-                    <h5>{{item.price | currency}}</h5>
+                    <h3>{{item.Name}}</h3>
+                    <p>{{item.Description}}</p>
+                    <h5>{{item.Price | currency}}</h5>
                 </div>
             </a>
         </div>

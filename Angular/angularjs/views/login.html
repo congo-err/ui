@@ -1,12 +1,18 @@
-<div>
-    <div>
-        <input type="text" name="username" placeholder="username"></input>
-    </div>
-    <div>
-        <input type="text" name="password" placeholder="password"></input>
-    </div>
-    <div>
-        <button>Log In</button>
-        <button>Sign Up</button>
+<div class="container" ng-controller="loginCtrl">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="input-group log-in">
+                <div class="input-field">
+                    <input type="text" class="form-control" ng-model="login.UserName" placeholder="Username"></input>
+                </div>
+                <div class="input-field">
+                    <input type="text" class="form-control" ng-model="login.Password" placeholder="Password"></input>
+                </div>
+                <div class="input-field pull-right">
+                    <button class="btn default-btn" ng-click="UserLogin()">Log In</button>
+                    <button class="btn default-btn" ui-sref="createAccount">Sign Up</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

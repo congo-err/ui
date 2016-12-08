@@ -28,11 +28,6 @@ body {
 
 .navbar .input-group {
     display: flex;
-    width: 70%;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    font-variant: small-caps;
-    font-weight: bold; 
 }
 
 .input-group .form-control {
@@ -43,13 +38,32 @@ body {
 }
 
 .input-group select.form-control {
-    width: 25%;
+    width: 16em;
+}
+
+.navbar .input-group button {
+    width: 3em;
+}
+
+.navbar-control {
+    padding-left: 0.5em;
+}
+
+.navbar-control.hidden {
+    display: none;
 }
 
 .search-bar {
-    display: flex;
+    display: inline-block;
     padding-top: 0.5em;
     padding-left: 1em; 
+    width: 60em;
+}
+
+.navbar-controls {
+    padding-top: 0.5em;
+    padding-right: 1em;
+    display: flex;
 }
 
 .content {
@@ -70,6 +84,32 @@ body {
 .featured-products .well {
     margin: 0 2em;
     padding: 0.5em 3em;
+}
+
+.input-group.log-in {
+    width: 100%;
+    padding-top: 6em;
+}
+
+.input-group.create-account {
+    width: 100%;
+    padding-top: 4em;
+}
+
+.input-field {
+    padding: 0.5em;
+}
+
+.form-control.city {
+    width: 67.5%;
+}
+
+.input-group select.form-control.state {
+    width: 16%;
+}
+
+.form-control.zip {
+    width: 15%;
 }
 
 footer {

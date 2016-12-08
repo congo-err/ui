@@ -3,12 +3,16 @@ angular.module("congo")
 .constant("proUrl", "http://ec2-34-193-194-23.compute-1.amazonaws.com/Congo-Logic-Api/Api/Product")
 .controller("congoCtrl", function ($scope, $http, catUrl, proUrl)
 {
-    $scope.data = {};
-    $scope.data2 = {};
-    $scope.data3 = {};
-
     var date = new Date();
-    $scope.year = date.getFullYear();
+
+    $scope.data = {};
+    $scope.data.Year = date.getFullYear();
+    $scope.data.CurrentUser = document.cookie;
+    $scope.data.States = ["AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA",
+                          "HI","ID","IL","IN","IA","KS","KY","LA","ME","MD",
+                          "MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ",
+                          "NM","NY","NC","ND","OH","OK","OR","PA","RI","SC",
+                          "SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"];
 
     $http.get(catUrl, {responseType:"json"})
         .success(function (data) {
@@ -20,7 +24,7 @@ angular.module("congo")
 
     $http.get(proUrl, {responseType:"json"})
         .success(function (data) {
-            $scope.data2.Product = data;
+            $scope.data.Product = data;
 
             var slot1 = 0;
             var slot2 = 0;
@@ -55,14 +59,14 @@ angular.module("congo")
                 }
                 else if (i == 4)
                 {
-                    $scope.data3.Product = [$scope.data2.Product[slot1], $scope.data2.Product[slot2], $scope.data2.Product[slot3], $scope.data2.Product[slot4]];
+                    $scope.data.Featured = [$scope.data.Product[slot1], $scope.data.Product[slot2], $scope.data.Product[slot3], $scope.data.Product[slot4]];
                     runLoop = false;
                 }
             }
             
         })
         .error(function (error) {
-            $scope.data2.Product = error;
+            $scope.data.Product = error;
         });
     
     $scope.search = function () {

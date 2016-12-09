@@ -8,10 +8,22 @@ angular.module("congo")
     $http.get(getcartURL + customerID,{resonpseType:"json"})
     .success(function(data){
         $scope.data.Cart = data;
+        $scope.data.Cart.subtotal = 0;
+        angular.forEach(data.Products, function(product){
+            $scope.data.Cart.subtotal += product.Price;
+        })
     })
     .error(function(error){
         $scope.data.Cart = error;
     });
 
-    
+    $scope.removeFromCart = function(product){
+        $http.delete(cartURL+customerID+ '/'+ product.id)
+        .then(function(data){
+            $scope.data.Cart.Products.splice(product.index, 1);
+        },
+        function(error){
+            $scope.data.Cart = error;
+        });
+    }
 });

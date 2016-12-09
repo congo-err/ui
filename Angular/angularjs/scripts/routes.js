@@ -10,7 +10,7 @@ angular.module('congo', ['ui.router'])
         templateUrl: "views/productList.html",
     })
     .state('product', {
-        url: "/products/product",
+        url: "/products/{ProductID}",
         templateUrl: "views/product.html",
     })
     .state('login', {

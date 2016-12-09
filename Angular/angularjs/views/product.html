@@ -1,22 +1,24 @@
-<div>
-    <a href="#/">Home</a>><a href="#/products/">Category</a>>Product
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-3">
-            <h3>Image</h3>
-        </div>
-        <div class="col-md-6">
-            <h3>Product Name</h3>
-        </div>
-        <div class="col-md-3">
-            <h4>Price</h4>
-            <button ng-click="addToCart()">Add to cart</button>
-        </div>
+<div ng-controller="productCtrl">
+    <div>
+        <a href="#/">Home</a>><a href="#/products/">{{data.CurrentProduct.Category}}</a>>{{data.CurrentProduct.Name}}
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <p>This is the description.</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h3>{{data.CurrentProduct.ImagePath}}</h3>
+            </div>
+            <div class="col-md-6">
+                <h3>{{data.CurrentProduct.Name}}</h3>
+            </div>
+            <div class="col-md-3">
+                <h4>{{data.CurrentProduct.Price}}</h4>
+                <button ng-click="addToCart()">Add to cart</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p>{{data.CurrentProduct.Description}}</p>
+            </div>
         </div>
     </div>
 </div>

@@ -13,7 +13,5 @@ angular.module("congo")
         $scope.data.Cart = error;
     });
 
-    $scope.removeFromCart= function(id){
-        $http.post(cartURL+)
-    }
+    
 });

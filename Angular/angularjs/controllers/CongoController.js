@@ -69,7 +69,7 @@ angular.module("congo")
                         $scope.data.Product = [];
                         for(var i = 0; i < data.length; i++)
                         {
-                            if(data[i].Name.lastIndexOf($scope.Selected.Search) > -1)
+                            if(data[i].Name.toLower().lastIndexOf($scope.Selected.Search.toLower()) > -1)
                             {
                                 $scope.data.Product.push(data[i]);
                             }
@@ -94,7 +94,7 @@ angular.module("congo")
                         $scope.data.Product = [];
                         for(var i = 0; i < data.length; i++)
                         {
-                            if(data[i].Name.lastIndexOf($scope.Selected.Search) > -1)
+                            if(data[i].Name.toLower().lastIndexOf($scope.Selected.Search.toLower()) > -1)
                             {
                                 $scope.data.Product.push(data[i]);
                             }

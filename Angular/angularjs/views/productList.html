@@ -6,8 +6,8 @@
     </div>
     <div class="col-md-9">
         <a href="#/">Home</a>>Category
-        <div class="row" ng-repeat="item in data2.Product">
-            <a href="#/products/product">
+        <div class="row" ng-repeat="item in data.Product">
+            <div ui-sref="product({ ProductID: item.ProductID })">
                 <div class="well container-fluid">
                     <div class="col-md-3">
                         <h4>{{item.ImagePath}}</h4>

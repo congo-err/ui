@@ -1,0 +1,18 @@
+<div class="container-fluid">
+    <span>&nbsp;</span>
+    <div class="col-md-12">
+        <div class="row" ng-repeat="item in data.orders">
+            <div ui-sref="order({ OrderID: item.OrderID })">
+                <div class="well container-fluid">
+                    <div class="col-md-3">
+                        <h4>Order #{{item.OrderID}}</h4>
+                    </div>
+
+                    <div class="col-md-9">
+                        <h4>{{item.OrderDate | date : short}}</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

@@ -32,6 +32,11 @@ angular.module('congo', ['ui.router'])
         controller: "stripeCtrl",
         templateUrl: "views/checkout.html",
     })
+    .state('orders', {
+        url: "/orders",
+        controller: "ordersCtrl",
+        templateUrl: "views/orders.html"
+    })
     .state('order', {
         url: "/order/{OrderID}",
         params: {

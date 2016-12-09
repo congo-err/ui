@@ -71,6 +71,9 @@ body {
     height: 100%;
 }
 
+.userLoginFail{
+    visibility: hidden;
+}
 .ProductSize{
     width: 9em;
 }

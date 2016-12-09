@@ -3,7 +3,7 @@ angular.module("congo")
 .constant("proUrl", "http://ec2-34-193-194-23.compute-1.amazonaws.com/Congo-Logic-Api/Api/Product")
 .constant("useUrl", "http://ec2-34-193-194-23.compute-1.amazonaws.com/Congo-Logic-Api/Api/UserRole")
 .constant("feaUrl", "http://ec2-34-193-194-23.compute-1.amazonaws.com/Congo-Logic-Api/Api/Featured")
-.controller("congoCtrl", function ($scope, $http, $state, catUrl, proUrl, useUrl, feaUrl, sprUrl)
+.controller("congoCtrl", function ($scope, $http, $state, catUrl, proUrl, useUrl, feaUrl)
 {
     var date = new Date();
     var id = 0;

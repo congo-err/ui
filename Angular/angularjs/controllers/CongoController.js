@@ -16,6 +16,10 @@ angular.module("congo")
                           "NM","NY","NC","ND","OH","OK","OR","PA","RI","SC",
                           "SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"];
 
+    $scope.Selected = {
+        Category: getCookie("SelectedCategory"),
+    }
+
     $http.get(catUrl, {responseType:"json"})
         .success(function (data) {
             $scope.data.Category = data;
@@ -42,14 +46,6 @@ angular.module("congo")
             });
     }
 
-    $http.get(proUrl, {responseType:"json"})
-        .success(function (data) {
-            $scope.data.Product = data;
-        })
-        .error(function (error) {
-            $scope.data.Product = error;
-        });
-
     $http.get(feaUrl+"/4", {responseType:"json"})
         .success(function (data) {
             $scope.data.Featured = data;
@@ -59,6 +55,28 @@ angular.module("congo")
         });
     
     $scope.search = function () {
+        if ($scope.Selected.Category.CategoryID == undefined)
+        {
+            $http.get(proUrl, {responseType:"json"})
+                .success(function (data) {
+                    $scope.data.Product = data;
+                })
+                .error(function (error) {
+                    $scope.data.Product = error;
+                });
+        }
+        else
+        {
+            console.log(proUrl+"/"+$scope.Selected.Category.CategoryID);
+            $http.get(proUrl+"/"+$scope.Selected.Category.CategoryID, {responseType:"json"})
+                .success(function (data) {
+                    $scope.data.Product = data;
+                })
+                .error(function (error) {
+                    $scope.data.Product = error;
+                });
+        }
+        setCookie("SelectedCategory", $scope.Selected.Category.CategoryID);
         $state.go("products");
     }
 

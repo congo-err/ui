@@ -1,4 +1,4 @@
-<div class="container"> 
+<div class="container" ng-controller="cartCtrl"> 
     <div class="row">
         <div class="col-md-9">
             <table class="table">
@@ -10,15 +10,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Xbox 360</td>
-                        <td>360.00</td>
-                        <td>
-                            This is the description for the xbox 360.
-                            It is a very cool gaming console.
-                            It's known for it's amazing games like something
-                            something somethign something something
-                        </td>
+                    <tr ng-repeat="item in data.Cart.Products">
+                        <td>{{item.Name}}</td> 
+                        <td>{{item.Price}}</td>
+                        <td>{{item.Description}}</td>
                         <td><button class ="btn default-btn">Remove</button></td>
                     </tr>
                 </tbody>

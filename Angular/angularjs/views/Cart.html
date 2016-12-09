@@ -49,6 +49,16 @@
                     <td>{{data.Cart.Customer.Address.Street + " " + data.Cart.Customer.Address.City + ", " + data.Cart.Customer.Address.State + " " + data.Cart.Customer.Address.Zip}}</td>
                 </tbody>
             </table>
+            <table class="table" ng-show="data.onOrderPage !== undefined">
+                <thead>
+                    <tr>
+                        <th>Order Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <td>{{data.Cart.OrderDate | date : short}}</td>
+                </tbody>
+            </table>
             <table class="table">
                 <thead>
                     <tr>
@@ -60,6 +70,7 @@
                 </tbody>
             </table>
             <button class="btn default-btn pull-right" ng-show="data.onOrderPage === undefined" ui-sref="checkout">Checkout</button>
+            <button class="btn default-btn pull-right" ng-show="data.onOrderPage !== undefined" ui-sref="orders">&laquo; Back to Orders</button>
         </div>
     </div>
 </div>

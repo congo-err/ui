@@ -31,7 +31,7 @@ angular.module("congo")
 
         $http.get(newUrl, {responseType:"json"})
             .success(function (data) {
-                if(checkRoles() == 3)
+                if(checkRoles() == 4)
                 {
                     reverseRoles();
                 }

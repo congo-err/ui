@@ -27,6 +27,7 @@ angular.module('congo', ['ui.router'])
     })
     .state('checkout',{
         url:"/checkout",
+        controller: "stripeCtrl",
         templateUrl: "views/checkout.html",
     })
 });

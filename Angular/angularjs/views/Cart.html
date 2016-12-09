@@ -23,7 +23,7 @@
                         <td>{{item.Description}}</td>
                         <td>{{item.Price | currency}}</td>
                         
-                        <td><button class ="btn default-btn" ng-show="data.onOrderPage === undefined" ng-click="removeFromCart({id: item.ProductID, index: $index})">Remove</button></td>
+                        <td><button class ="btn btn-default" ng-show="data.onOrderPage === undefined" ng-click="removeFromCart({id: item.ProductID, index: $index})">Remove</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -69,8 +69,8 @@
                     <td>{{data.Cart.subtotal | currency}}</td>
                 </tbody>
             </table>
-            <button class="btn default-btn pull-right" ng-show="data.onOrderPage === undefined" ui-sref="checkout">Checkout</button>
-            <button class="btn default-btn pull-right" ng-show="data.onOrderPage !== undefined" ui-sref="orders">&laquo; Back to Orders</button>
+            <button class="btn btn-default pull-right" ng-show="data.onOrderPage === undefined" ui-sref="checkout">Checkout</button>
+            <button class="btn btn-default pull-right" ng-show="data.onOrderPage !== undefined" ui-sref="orders">&laquo; Back to Orders</button>
         </div>
     </div>
 </div>

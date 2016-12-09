@@ -11,6 +11,8 @@
 
 body {
     position: relative;
+    color: #030;
+    background-color: #efe;
     min-height: 100%;
 }
 
@@ -22,8 +24,20 @@ body {
     font-weight: bold; 
 }
 
-.navbar-brand {
+.navbar-inverse {
+    background-image: linear-gradient(to bottom, #272 0%, #040 100%);
+    background-color: #040;
+    border-color: #060;
+}
+
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-brand:visited {
     font-size: 22px;
+    color: #fea;
+}
+
+.navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:active {
+    font-size: 22px;
+    color: #db7;
 }
 
 .navbar .input-group {
@@ -35,6 +49,34 @@ body {
     font-size: 14px;
     font-variant: small-caps;
     font-weight: bold; 
+    background-color: #fea;
+    border: 1px solid #db7;
+    color: #030;
+}
+
+.form-control {
+    background-color: #fea;
+    border: 1px solid #db7;
+    color: #030;
+}
+
+.form-control::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #696;
+}
+.form-control::-moz-placeholder { /* Firefox 19+ */
+    color: #696;
+}
+.form-control:-ms-input-placeholder { /* IE 10+ */
+    color: #696;
+}
+.form-control:-moz-placeholder { /* Firefox 18- */
+    color: #696;
+}
+
+.input-group-addon {
+    background-color: #db7;
+    border: 1px solid #db7;
+    color: #030;
 }
 
 .input-group select.form-control {
@@ -45,8 +87,28 @@ body {
     width: 3em;
 }
 
+.btn-default, .btn-default:visited {
+    color: #030;
+    background-color: #973;
+    background-image: linear-gradient(to bottom, #fd9 0%, #973 100%);
+    text-shadow: 0 1px 0 #973;
+    border-color: #a84;
+}
+
+.btn-default:hover, .btn-default:focus {
+    background-color: #973;
+    color: #030;
+    text-shadow: 0 1px 0 #973;
+    border-color: #a84;
+}
+
 .navbar-control {
     padding-left: 0.5em;
+}
+
+.navbar-control p {
+    color: #fea;
+    padding: .5em 0;
 }
 
 .navbar-control.hidden {
@@ -71,15 +133,37 @@ body {
     height: 100%;
 }
 
+.jumbotron {
+    background-color: #6c6;
+}
+
+a {
+    color: #060;
+}
+
+a:hover, a:focus {
+    color: #292;
+}
+
 .userLoginFail{
     visibility: hidden;
 }
+
 .ProductSize{
     width: 9em;
 }
 
 .featured-products {
     text-align: center;
+}
+
+.well {
+    background-image: linear-gradient(to bottom, #fd9 0%, #973 100%);
+    cursor: pointer;
+}
+
+.well.filters {
+    cursor: default;
 }
 
 .featured-products .container {
@@ -137,10 +221,7 @@ footer .well {
     margin: 0;
     height: 8em;
     padding: 19px 0;
-}
-
-.well.container-fluid {
-    /*height: 8em;*/
+    cursor: default;
 }
 
 .product-image {
@@ -149,6 +230,10 @@ footer .well {
     margin: 0 auto;
 }
 
+hr {
+    border-top: 1px solid #6c6;
+}
+
 footer .well hr {
-    border-top: 1px solid #cccccc;
+    border-top: 1px solid #4a4;
 }

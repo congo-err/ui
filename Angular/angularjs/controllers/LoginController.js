@@ -17,6 +17,10 @@ angular.module("congo")
                     setCookie("AccountID", res.data.account.AccountID);
                     window.location.href = "";
                 }
+                else{
+                    $scope.data.error = res.data.message;
+                    document.getElementsByClassName("userLoginFail")[0].style.visibility = "visible";
+                }
             }, function (err) {
 
             });

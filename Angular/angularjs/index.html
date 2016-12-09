@@ -26,7 +26,7 @@
         <div class="search-bar">
             <div class="input-group">
                 <select class="form-control" ng-model="Selected.Category" ng-options="x.Name for x in data.Category">
-                    <option value="" disabled selected>Categories</option>
+                    <option value="" disabled selected>All Categories</option>
                 </select>
                 <input type="text" class="form-control" ng-model="Selected.Search" placeholder="Search..">
                 <button type="button" class="btn btn-default form-control" ng-click="search()">

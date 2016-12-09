@@ -18,6 +18,7 @@ angular.module("congo")
 
     $scope.Selected = {
         Category: getCookie("SelectedCategory"),
+        Search: getCookie("Search"),
     }
 
     $http.get(catUrl, {responseType:"json"})
@@ -59,7 +60,21 @@ angular.module("congo")
         {
             $http.get(proUrl, {responseType:"json"})
                 .success(function (data) {
-                    $scope.data.Product = data;
+                    if($scope.Selected.Search == "")
+                    {
+                        $scope.data.Product = data;
+                    }
+                    else
+                    {
+                        $scope.data.Product = [];
+                        for(var i = 0; i < data.length; i++)
+                        {
+                            if(data[i].Name.lastIndexOf($scope.Selected.Search) > -1)
+                            {
+                                $scope.data.Product.push(data[i]);
+                            }
+                        }
+                    }
                 })
                 .error(function (error) {
                     $scope.data.Product = error;
@@ -70,13 +85,28 @@ angular.module("congo")
             console.log(proUrl+"/"+$scope.Selected.Category.CategoryID);
             $http.get(proUrl+"/"+$scope.Selected.Category.CategoryID, {responseType:"json"})
                 .success(function (data) {
-                    $scope.data.Product = data;
+                    if($scope.Selected.Search == "")
+                    {
+                        $scope.data.Product = data;
+                    }
+                    else
+                    {
+                        $scope.data.Product = [];
+                        for(var i = 0; i < data.length; i++)
+                        {
+                            if(data[i].Name.lastIndexOf($scope.Selected.Search) > -1)
+                            {
+                                $scope.data.Product.push(data[i]);
+                            }
+                        }
+                    }
                 })
                 .error(function (error) {
                     $scope.data.Product = error;
                 });
         }
         setCookie("SelectedCategory", $scope.Selected.Category.CategoryID);
+        setCookie("Search", $scope.Selected.Search);
         $state.go("products");
     }
 

@@ -11,6 +11,7 @@ angular.module('congo', ['ui.router'])
     })
     .state('product', {
         url: "/products/{ProductID}",
+        controller: "productCtrl",
         templateUrl: "views/product.html",
     })
     .state('login', {

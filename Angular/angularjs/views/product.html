@@ -1,6 +1,6 @@
 <div ng-controller="productCtrl">
     <div>
-        <a href="#/">Home</a>><a href="#/products/">{{data.CurrentProduct.Category}}</a>>{{data.CurrentProduct.Name}}
+        <a href="#/">Home</a>><a href="#/products">{{data.CurrentProduct.Category.Name}}</a>>{{data.CurrentProduct.Name}}
     </div>
     <div class="container">
         <div class="row">
@@ -11,7 +11,7 @@
                 <h3>{{data.CurrentProduct.Name}}</h3>
             </div>
             <div class="col-md-3">
-                <h4>{{data.CurrentProduct.Price}}</h4>
+                <h4>{{data.CurrentProduct.Price | currency}}</h4>
                 <button ng-click="addToCart()">Add to cart</button>
             </div>
         </div>

@@ -8,13 +8,13 @@
     <div class="container">
         <div class="row">
             <div ng-repeat="item in data.Featured" class="col-md-3">
-                <a ui-sref="product({ ProductID: item.ProductID })">
+                <div ui-sref="product({ ProductID: item.ProductID })">
                     <div class="well" style="margin: 0">
                         <h3>{{item.Name}}</h3>
                         <img src="img/{{item.ImagePath}}" alt="img/{{item.ImagePath}}" class="img-responsive img-thumbnail">
                         <h5>{{item.Price | currency}}</h5>
                     </div>
-                </a>
+                </div>
             </div>
         </div>
     </div>

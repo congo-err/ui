@@ -13,15 +13,16 @@
                 <thead>
                     <tr>
                         <th class="ProductSize">Product</th>
-                        <th>Price</th>
                         <th>Description</th>
+                        <th>Price</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="item in data.Cart.Products">
                         <td>{{item.Name}}</td> 
-                        <td>{{item.Price}}</td>
                         <td>{{item.Description}}</td>
+                        <td>{{item.Price | currency}}</td>
+                        
                         <td><button class ="btn default-btn" ng-show="data.onOrderPage === undefined" ng-click="removeFromCart({id: item.ProductID, index: $index})">Remove</button></td>
                     </tr>
                 </tbody>
@@ -55,7 +56,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <td>{{data.Cart.subtotal}}</td>
+                    <td>{{data.Cart.subtotal | currency}}</td>
                 </tbody>
             </table>
             <button class="btn default-btn pull-right" ng-show="data.onOrderPage === undefined" ui-sref="checkout">Checkout</button>

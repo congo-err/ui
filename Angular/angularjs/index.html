@@ -16,6 +16,7 @@
     <script src="controllers/CartController.js"></script>
     <script src="controllers/ProductController.js"></script>
     <script src="controllers/OrderController.js"></script>
+    <script src="controllers/OrdersController.js"></script>
     <script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
 
 </head>
@@ -24,7 +25,7 @@
         <a class="navbar-brand" href="#">Congo</a>
         <div class="search-bar">
             <div class="input-group">
-                <select class="form-control" ng-model="selectedCat" ng-options="x.Name for x in data.Category">
+                <select class="form-control" ng-model="Selected.Category" ng-options="x.Name for x in data.Category">
                     <option value="" disabled selected>Categories</option>
                 </select>
                 <input type="text" class="form-control" name="search" placeholder="Search..">
@@ -46,6 +47,9 @@
                 </div>
                 <div class="navbar-control hidden">
                     <button type="button" class="btn btn-default" ui-sref="home">Account</button>
+                </div>
+                <div class="navbar-control hidden">
+                    <button type="button" class="btn btn-default" ui-sref="orders">Order History</button>
                 </div>
                 <div class="navbar-control hidden">
                     <button type="button" class="btn btn-default" ng-click="logOut()">Log Out</button>

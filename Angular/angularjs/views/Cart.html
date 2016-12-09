@@ -1,5 +1,13 @@
-<div class="container" ng-controller="cartCtrl"> 
-    <div class="row">
+<div class="container">
+    <span>&nbsp;</span>
+
+    <div class="row" ng-show="data.message !== undefined">
+        <div class="col-md-12" ng-class="data.message.class">
+            {{ data.message.text }}
+        </div>
+    </div>
+
+    <div class="row" ng-show="data.Cart !== undefined">
         <div class="col-md-9">
             <table class="table">
                 <thead>
@@ -15,7 +23,7 @@
                         <td>{{item.Description}}</td>
                         <td>{{item.Price | currency}}</td>
                         
-                        <td><button class ="btn default-btn" ng-click="removeFromCart({id: item.ProductID, index: $index})">Remove</button></td>
+                        <td><button class ="btn default-btn" ng-show="data.onOrderPage === undefined" ng-click="removeFromCart({id: item.ProductID, index: $index})">Remove</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -51,7 +59,7 @@
                     <td>{{data.Cart.subtotal | currency}}</td>
                 </tbody>
             </table>
-            <button class="btn default-btn pull-right" ui-sref="checkout">Checkout</button>
+            <button class="btn default-btn pull-right" ng-show="data.onOrderPage === undefined" ui-sref="checkout">Checkout</button>
         </div>
     </div>
 </div>

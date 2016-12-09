@@ -24,6 +24,7 @@ angular.module('congo', ['ui.router'])
     })
     .state('cart', {
         url: "/cart",
+        controller: "cartCtrl",
         templateUrl: "views/Cart.html",
     })
     .state('checkout',{
@@ -31,4 +32,12 @@ angular.module('congo', ['ui.router'])
         controller: "stripeCtrl",
         templateUrl: "views/checkout.html",
     })
+    .state('order', {
+        url: "/order/{OrderID}",
+        params: {
+            message: null
+        },
+        controller: "orderCtrl",
+        templateUrl: "views/Cart.html"
+    });
 });

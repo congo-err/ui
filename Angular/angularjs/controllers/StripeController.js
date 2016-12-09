@@ -38,7 +38,7 @@
           }).then(function(response) {
             console.log(response.data);
             ng.element(errorMessage).html("Your order has been submitted!");
-            $state.go("home");
+            $state.go("order", {OrderID: response.data.Order.OrderID, message: {"class": "alert alert-success", "text": "Your order has been submitted!"}});
           }, function(response) {
             console.log(response.data);
             ng.element(errorMessage).html(response.data.message);

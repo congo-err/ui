@@ -21,6 +21,10 @@ angular.module("congo")
         $http.delete(cartURL+customerID+ '/'+ product.id)
         .then(function(data){
             $scope.data.Cart.Products.splice(product.index, 1);
+            $scope.data.Cart.subtotal = 0;
+            angular.forEach(data.Products, function(product){
+                $scope.data.Cart.subtotal += product.Price;
+            })
         },
         function(error){
             $scope.data.Cart = error;

@@ -7,7 +7,7 @@
     <hr>
     <div class="container">
         <div ng-repeat="item in data.Featured">
-            <a href="#/products/product">
+            <a ui-sref="product({ ProductID: item.ProductID })">
                 <div class="well">
                     <h3>{{item.Name}}</h3>
                     <p>{{item.Description}}</p>

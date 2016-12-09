@@ -140,7 +140,13 @@ footer .well {
 }
 
 .well.container-fluid {
-    height: 8em;
+    /*height: 8em;*/
+}
+
+.product-image {
+    display: block;
+    height: 150px;
+    margin: 0 auto;
 }
 
 footer .well hr {

@@ -11,7 +11,7 @@
                 <div class="well container-fluid">
                     <div class="row">
                         <div class="col-md-3">
-                            <img src="img/{{item.ImagePath}}" alt="img/{{item.ImagePath}}" class="product-image img-responsive img-thumbnail">
+                            <img ng-src="'img/' + item.ImagePath" alt="{{item.ImagePath}}" class="product-image img-responsive img-thumbnail">
                         </div>
                         <div class="col-md-3">
                             <h3>{{item.Name}}</h3>

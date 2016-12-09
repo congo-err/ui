@@ -11,7 +11,7 @@
                 <div ui-sref="product({ ProductID: item.ProductID })">
                     <div class="well" style="margin: 0">
                         <h3>{{item.Name}}</h3>
-                        <img src="img/{{item.ImagePath}}" alt="img/{{item.ImagePath}}" class="img-responsive img-thumbnail">
+                        <img ng-src="'img/' + item.ImagePath" alt="{{item.ImagePath}}" class="img-responsive img-thumbnail">
                         <h5>{{item.Price | currency}}</h5>
                     </div>
                 </div>
